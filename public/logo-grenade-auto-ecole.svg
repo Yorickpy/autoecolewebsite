@@ -1,0 +1,9 @@
+<svg width="270" height="98" viewBox="0 0 270 98" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="270" height="98" rx="10" fill="white"/>
+  <path d="M44 18C62 8 104 7 142 13C170 17 196 25 228 34C191 27 165 22 139 21C108 20 77 24 44 31C49 27 41 22 44 18Z" fill="#1E58A8"/>
+  <path d="M92 17C110 10 141 9 170 13C188 16 207 23 224 29C205 21 188 18 170 17C148 16 125 18 92 24C98 22 88 19 92 17Z" fill="#1E58A8"/>
+  <text x="16" y="71" fill="#12499A" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700" letter-spacing="3">GRENADE</text>
+  <text x="112" y="89" fill="#12499A" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" letter-spacing="4">AUTO-ECOLE</text>
+  <path d="M18 80H95" stroke="#12499A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M209 80H252" stroke="#12499A" stroke-width="4" stroke-linecap="round"/>
+</svg>

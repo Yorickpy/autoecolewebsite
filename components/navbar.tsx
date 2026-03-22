@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -11,7 +12,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Car, Menu, Phone, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 
 const navLinks = [
   { label: "Accueil", href: "/" },
@@ -43,38 +44,25 @@ export default function Navbar() {
       )}
     >
       <nav
-        className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-[4.5rem] lg:px-8"
+        className="mx-auto flex h-[76px] max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:h-[84px] lg:px-8"
         aria-label="Navigation principale"
       >
         <Link
           href="/"
-          className="group flex items-center gap-2"
+          className="group flex shrink-0 items-center gap-2"
           aria-label="Grenade Auto-Ecole - Accueil"
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-green text-white shadow-sm shadow-black/15">
-            <Car className="h-5 w-5" aria-hidden="true" />
-          </span>
-          <span className="flex flex-col leading-none">
-            <span
-              className={cn(
-                "font-display text-sm font-bold tracking-tight",
-                isTopBar ? "text-white" : "text-foreground"
-              )}
-            >
-              Grenade
-            </span>
-            <span
-              className={cn(
-                "text-[10px] font-medium uppercase tracking-widest",
-                isTopBar ? "text-white/72" : "text-muted-foreground"
-              )}
-            >
-              Auto-Ecole
-            </span>
-          </span>
+          <Image
+            src="/grenade-logo.png"
+            alt="Logo Grenade Auto-Ecole"
+            width={320}
+            height={110}
+            className="h-[66px] w-[230px] object-contain object-center sm:h-[72px] sm:w-[248px] lg:h-[76px] lg:w-[268px]"
+            priority
+          />
         </Link>
 
-        <ul className="hidden items-center gap-1 md:flex" role="list">
+        <ul className="hidden flex-1 items-center justify-center gap-1 md:flex" role="list">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
 
@@ -146,14 +134,15 @@ export default function Navbar() {
                 <Link
                   href="/"
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-2"
+                  className="flex items-center gap-3"
                 >
-                  <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-green text-white">
-                    <Car className="h-4 w-4" aria-hidden="true" />
-                  </span>
-                  <span className="font-display text-sm font-bold text-foreground">
-                    Grenade Auto-Ecole
-                  </span>
+                  <Image
+                    src="/grenade-logo.png"
+                    alt="Logo Grenade Auto-Ecole"
+                    width={280}
+                    height={96}
+                    className="h-[66px] w-[220px] object-contain object-center"
+                  />
                 </Link>
                 <SheetClose asChild>
                   <Button variant="ghost" size="icon" aria-label="Fermer le menu">

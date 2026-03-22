@@ -1,20 +1,21 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Car, Phone, Mail, MapPin, ExternalLink } from "lucide-react";
+import { ExternalLink, Mail, MapPin, Phone } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 const navLinks = [
   { label: "Accueil", href: "/" },
   { label: "Formations", href: "/formations" },
-  { label: "Label Qualité", href: "/label" },
+  { label: "Label Qualite", href: "/label" },
   { label: "Avis", href: "/reviews" },
   { label: "Contact", href: "/contact" },
 ];
 
 const formations = [
   { label: "Permis B", href: "/formations" },
-  { label: "Boîte automatique", href: "/formations" },
-  { label: "Conduite accompagnée (AAC)", href: "/formations" },
-  { label: "Conduite supervisée (CS)", href: "/formations" },
+  { label: "Boite automatique", href: "/formations" },
+  { label: "Conduite accompagnee (AAC)", href: "/formations" },
+  { label: "Conduite supervisee (CS)", href: "/formations" },
   { label: "Stage code", href: "/formations" },
   { label: "Perfectionnement", href: "/formations" },
 ];
@@ -22,42 +23,40 @@ const formations = [
 export default function Footer() {
   return (
     <footer className="bg-navy text-navy-foreground" role="contentinfo">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-8">
-        {/* Top grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          {/* Brand */}
+      <div className="mx-auto max-w-7xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">
+        <div className="mb-12 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
             <Link
               href="/"
-              className="flex items-center gap-2 mb-4"
-              aria-label="Grenade Auto-École — Accueil"
+              className="mb-4 flex items-center gap-2"
+              aria-label="Grenade Auto-Ecole - Accueil"
             >
-              <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-green text-white">
-                <Car className="w-5 h-5" aria-hidden="true" />
-              </span>
-              <span className="font-display font-bold text-base text-navy-foreground">
-                Grenade Auto-École
-              </span>
+              <Image
+                src="/grenade-logo.png"
+                alt="Logo Grenade Auto-Ecole"
+                width={320}
+                height={110}
+                className="h-auto w-[185px] object-contain sm:w-[210px]"
+              />
             </Link>
-            <p className="text-sm text-white/60 leading-relaxed mb-5">
-              Depuis 35 ans votre sécurité est notre priorité. Auto-école locale
-              à Grenade, Haute-Garonne.
+            <p className="mb-5 text-sm leading-relaxed text-white/60">
+              Depuis 35 ans votre securite est notre priorite. Auto-ecole locale
+              a Grenade, Haute-Garonne.
             </p>
             <a
-              href="https://www.google.com/maps/search/Grenade+Auto-École"
+              href="https://www.google.com/maps/search/Grenade+Auto-Ecole"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs text-green hover:text-white transition-colors duration-200 font-medium"
-              aria-label="Voir sur Google Maps (ouvre dans un nouvel onglet)"
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-green transition-colors duration-200 hover:text-white"
+              aria-label="Voir sur Google Maps"
             >
               Voir sur Google Maps
-              <ExternalLink className="w-3 h-3" aria-hidden="true" />
+              <ExternalLink className="h-3 w-3" aria-hidden="true" />
             </a>
           </div>
 
-          {/* Navigation */}
           <div>
-            <h2 className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">
+            <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/40">
               Navigation
             </h2>
             <ul className="flex flex-col gap-2.5" role="list">
@@ -65,7 +64,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/70 hover:text-white transition-colors duration-200"
+                    className="text-sm text-white/70 transition-colors duration-200 hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -74,59 +73,48 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Formations */}
           <div>
-            <h2 className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">
+            <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/40">
               Formations
             </h2>
             <ul className="flex flex-col gap-2.5" role="list">
-              {formations.map((f) => (
-                <li key={f.label}>
+              {formations.map((formation) => (
+                <li key={formation.label}>
                   <Link
-                    href={f.href}
-                    className="text-sm text-white/70 hover:text-white transition-colors duration-200"
+                    href={formation.href}
+                    className="text-sm text-white/70 transition-colors duration-200 hover:text-white"
                   >
-                    {f.label}
+                    {formation.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <h2 className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">
+            <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/40">
               Contact
             </h2>
-            <address className="not-italic flex flex-col gap-4">
+            <address className="flex flex-col gap-4 not-italic">
               <a
                 href="tel:0769748412"
-                className="flex items-start gap-3 text-sm text-white/70 hover:text-white transition-colors duration-200 group"
+                className="group flex items-start gap-3 text-sm text-white/70 transition-colors duration-200 hover:text-white"
                 aria-label="Appeler le 07 69 74 84 12"
               >
-                <Phone
-                  className="w-4 h-4 text-green mt-0.5 shrink-0"
-                  aria-hidden="true"
-                />
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-green" aria-hidden="true" />
                 07 69 74 84 12
               </a>
               <a
                 href="mailto:grenade.autoecole@gmail.com"
-                className="flex items-start gap-3 text-sm text-white/70 hover:text-white transition-colors duration-200 break-all"
-                aria-label="Envoyer un email à grenade.autoecole@gmail.com"
+                className="flex items-start gap-3 break-all text-sm text-white/70 transition-colors duration-200 hover:text-white"
+                aria-label="Envoyer un email a grenade.autoecole@gmail.com"
               >
-                <Mail
-                  className="w-4 h-4 text-green mt-0.5 shrink-0"
-                  aria-hidden="true"
-                />
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-green" aria-hidden="true" />
                 grenade.autoecole@gmail.com
               </a>
               <span className="flex items-start gap-3 text-sm text-white/70">
-                <MapPin
-                  className="w-4 h-4 text-green mt-0.5 shrink-0"
-                  aria-hidden="true"
-                />
-                13C Allées Alsace Lorraine
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-green" aria-hidden="true" />
+                13C Allees Alsace Lorraine
                 <br />
                 31330 Grenade, France
               </span>
@@ -134,30 +122,26 @@ export default function Footer() {
           </div>
         </div>
 
-        <Separator className="bg-white/10 mb-6" />
+        <Separator className="mb-6 bg-white/10" />
 
-        {/* Bottom row */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40">
-          <p>
-            &copy; {new Date().getFullYear()} Grenade Auto-École. Tous droits
-            réservés.
-          </p>
-          <nav aria-label="Liens légaux">
+        <div className="flex flex-col items-center justify-between gap-4 text-xs text-white/40 sm:flex-row">
+          <p>&copy; {new Date().getFullYear()} Grenade Auto-Ecole. Tous droits reserves.</p>
+          <nav aria-label="Liens legaux">
             <ul className="flex items-center gap-4" role="list">
               <li>
                 <Link
                   href="/mentions-legales"
-                  className="hover:text-white transition-colors duration-200"
+                  className="transition-colors duration-200 hover:text-white"
                 >
-                  Mentions légales
+                  Mentions legales
                 </Link>
               </li>
               <li>
                 <Link
                   href="/confidentialite"
-                  className="hover:text-white transition-colors duration-200"
+                  className="transition-colors duration-200 hover:text-white"
                 >
-                  Confidentialité
+                  Confidentialite
                 </Link>
               </li>
             </ul>

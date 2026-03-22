@@ -123,3 +123,55 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes hero-bounce-in {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.02);
+  }
+  75% {
+    transform: translateY(4px) scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes hero-type-line {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes hero-caret-fade-out {
+  0%,
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@layer utilities {
+  .animate-hero-bounce-in {
+    animation: hero-bounce-in 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-type-caret {
+    display: inline-block;
+    width: 0.08em;
+    height: 0.9em;
+    vertical-align: -0.08em;
+    background: currentColor;
+    animation: hero-caret-fade-out 0.45s linear forwards;
+  }
+}

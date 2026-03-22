@@ -1,41 +1,48 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Clock3, Send, CheckCircle2 } from "lucide-react";
+import {
+  CheckCircle2,
+  Clock3,
+  Mail,
+  MapPin,
+  Phone,
+  Send,
+} from "lucide-react";
 
 const contactInfo = [
   {
     icon: Phone,
-    label: "Téléphone",
+    label: "Telephone",
     value: "07 69 74 84 12",
     href: "tel:0769748412",
-    desc: "Du lundi au samedi, 8h — 19h",
+    desc: "Du lundi au samedi, 8h - 19h",
   },
   {
     icon: Mail,
     label: "Email",
     value: "grenade.autoecole@gmail.com",
     href: "mailto:grenade.autoecole@gmail.com",
-    desc: "Réponse sous 24 à 48h",
+    desc: "Reponse sous 24 a 48h",
   },
   {
     icon: MapPin,
     label: "Adresse",
-    value: "13C Allées Alsace Lorraine, 31330 Grenade",
-    href: "https://maps.google.com/?q=13C+Allées+Alsace+Lorraine+31330+Grenade",
-    desc: "France — Haute-Garonne",
+    value: "13C Allees Alsace Lorraine, 31330 Grenade",
+    href: "https://maps.google.com/?q=13C+Allees+Alsace+Lorraine+31330+Grenade",
+    desc: "France - Haute-Garonne",
   },
   {
     icon: Clock3,
     label: "Horaires",
-    value: "Lun — Sam : 8h00 — 19h00",
+    value: "Lun - Sam : 8h00 - 19h00",
     href: null,
-    desc: "Fermé les dimanches et jours fériés",
+    desc: "Ferme les dimanches et jours feries",
   },
 ];
 
@@ -51,30 +58,32 @@ export default function ContactPage() {
     <>
       <Navbar />
       <main>
-        {/* Hero */}
-        <section className="bg-navy pt-28 pb-16 md:pt-36 md:pb-20" aria-label="En-tête contact">
+        <section
+          className="bg-navy pb-16 pt-28 md:pb-20 md:pt-36"
+          aria-label="En-tete contact"
+        >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <p className="text-xs font-semibold uppercase tracking-widest text-green mb-3">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-green">
               Contact
             </p>
-            <h1 className="font-display font-bold text-white text-4xl md:text-5xl text-balance mb-5">
+            <h1 className="mb-5 text-balance font-display text-4xl font-bold text-white md:text-5xl">
               Parlons de votre projet
             </h1>
-            <p className="text-white/60 text-lg leading-relaxed max-w-2xl">
+            <p className="max-w-2xl text-lg leading-relaxed text-white/60">
               Vous souhaitez vous inscrire, obtenir un devis ou simplement poser
-              une question ? Notre équipe est là pour vous aider.
+              une question ? Notre equipe est la pour vous aider.
             </p>
           </div>
         </section>
 
-        {/* Contact content */}
-        <section className="py-16 md:py-24 bg-background" aria-label="Informations de contact et formulaire">
+        <section
+          className="bg-background py-16 md:py-24"
+          aria-label="Informations de contact et formulaire"
+        >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-              {/* Left — Contact info */}
-              <div className="lg:col-span-2 flex flex-col gap-6">
-                {/* Contact cards */}
-                <address className="not-italic flex flex-col gap-4">
+            <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
+              <div className="flex flex-col gap-6 lg:col-span-2">
+                <address className="flex flex-col gap-4 not-italic">
                   {contactInfo.map(({ icon: Icon, label, value, href, desc }) => {
                     const Wrapper = href ? "a" : "div";
                     const wrapperProps = href
@@ -84,93 +93,95 @@ export default function ContactPage() {
                             ? { target: "_blank", rel: "noopener noreferrer" }
                             : {}),
                           className:
-                            "group flex items-start gap-4 p-5 bg-card rounded-2xl border border-border shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200",
+                            "group flex items-start gap-4 rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md",
                           "aria-label": `${label} : ${value}`,
                         }
                       : {
                           className:
-                            "flex items-start gap-4 p-5 bg-card rounded-2xl border border-border shadow-sm",
+                            "flex items-start gap-4 rounded-2xl border border-border bg-card p-5 shadow-sm",
                         };
 
                     return (
-                      <Wrapper key={label} {...(wrapperProps as React.HTMLAttributes<HTMLElement>)}>
-                        <span className="flex items-center justify-center w-11 h-11 rounded-xl bg-green-light shrink-0 group-hover:bg-green transition-colors duration-200">
+                      <Wrapper
+                        key={label}
+                        {...(wrapperProps as React.HTMLAttributes<HTMLElement>)}
+                      >
+                        <span className="group-hover:bg-green flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-light transition-colors duration-200">
                           <Icon
-                            className="w-5 h-5 text-green group-hover:text-white transition-colors duration-200"
+                            className="h-5 w-5 text-green transition-colors duration-200 group-hover:text-white"
                             aria-hidden="true"
                           />
                         </span>
                         <div>
-                          <p className="text-xs font-medium text-muted-foreground mb-0.5">
+                          <p className="mb-0.5 text-xs font-medium text-muted-foreground">
                             {label}
                           </p>
-                          <p className="font-semibold text-foreground text-sm leading-snug">
+                          <p className="text-sm font-semibold leading-snug text-foreground">
                             {value}
                           </p>
-                          <p className="text-xs text-muted-foreground mt-0.5">{desc}</p>
+                          <p className="mt-0.5 text-xs text-muted-foreground">{desc}</p>
                         </div>
                       </Wrapper>
                     );
                   })}
                 </address>
 
-                {/* Map placeholder */}
-                <div
-                  className="flex-1 min-h-48 rounded-2xl bg-secondary border border-border flex flex-col items-center justify-center gap-3 p-6 text-center"
-                  role="img"
-                  aria-label="Carte de localisation — 13C Allées Alsace Lorraine, 31330 Grenade"
-                >
-                  <div className="w-12 h-12 rounded-2xl bg-green-light flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-green" aria-hidden="true" />
+                <div className="overflow-hidden rounded-2xl border border-border bg-secondary shadow-sm">
+                  <iframe
+                    title="Carte de localisation - Grenade Auto-Ecole"
+                    src="https://www.google.com/maps?q=13C%20Allees%20Alsace%20Lorraine%2C%2031330%20Grenade&z=16&output=embed"
+                    className="min-h-64 w-full border-0"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                  <div className="flex items-center justify-between gap-3 border-t border-border px-4 py-3">
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">
+                        13C Allees Alsace Lorraine
+                      </p>
+                      <p className="text-xs text-muted-foreground">31330 Grenade, France</p>
+                    </div>
+                    <a
+                      href="https://maps.google.com/?q=13C+Allees+Alsace+Lorraine+31330+Grenade"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-medium text-green underline-offset-2 transition-colors duration-200 hover:text-[#e33292]"
+                      aria-label="Ouvrir dans Google Maps"
+                    >
+                      Ouvrir Google Maps
+                    </a>
                   </div>
-                  <div>
-                    <p className="font-semibold text-foreground text-sm">
-                      13C Allées Alsace Lorraine
-                    </p>
-                    <p className="text-xs text-muted-foreground">31330 Grenade, France</p>
-                  </div>
-                  <a
-                    href="https://maps.google.com/?q=13C+Allées+Alsace+Lorraine+31330+Grenade"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-green hover:text-green-dark font-medium underline underline-offset-2 transition-colors duration-200"
-                    aria-label="Ouvrir dans Google Maps (ouvre dans un nouvel onglet)"
-                  >
-                    Ouvrir dans Google Maps
-                  </a>
                 </div>
 
-                {/* Phone CTA */}
                 <a
                   href="tel:0769748412"
-                  className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-navy text-white font-semibold text-sm hover:bg-navy/90 transition-colors duration-200"
+                  className="flex w-full items-center justify-center gap-3 rounded-2xl bg-navy py-4 text-sm font-semibold text-white transition-colors duration-200 hover:bg-navy/90"
                   aria-label="Appeler le 07 69 74 84 12"
                 >
-                  <Phone className="w-4 h-4 text-green" aria-hidden="true" />
-                  Appeler directement — 07 69 74 84 12
+                  <Phone className="h-4 w-4 text-green" aria-hidden="true" />
+                  Appeler directement - 07 69 74 84 12
                 </a>
               </div>
 
-              {/* Right — Form */}
               <div className="lg:col-span-3">
-                <div className="bg-card rounded-2xl border border-border shadow-sm p-8 md:p-10">
+                <div className="rounded-2xl border border-border bg-card p-8 shadow-sm md:p-10">
                   {submitted ? (
                     <div className="flex flex-col items-center justify-center gap-5 py-20 text-center">
-                      <div className="w-16 h-16 rounded-full bg-green-light flex items-center justify-center">
-                        <CheckCircle2 className="w-8 h-8 text-green" aria-hidden="true" />
+                      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-light">
+                        <CheckCircle2 className="h-8 w-8 text-green" aria-hidden="true" />
                       </div>
                       <div>
-                        <h2 className="font-display font-bold text-foreground text-2xl mb-2">
-                          Message envoyé !
+                        <h2 className="mb-2 font-display text-2xl font-bold text-foreground">
+                          Message envoye !
                         </h2>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          Merci pour votre message. Nous vous répondrons dans les
-                          plus brefs délais, généralement sous 24 à 48h.
+                        <p className="text-sm leading-relaxed text-muted-foreground">
+                          Merci pour votre message. Nous vous repondrons dans les
+                          plus brefs delais, generalement sous 24 a 48h.
                         </p>
                       </div>
                       <Button
                         variant="outline"
-                        className="rounded-xl mt-2"
+                        className="mt-2 rounded-xl"
                         onClick={() => setSubmitted(false)}
                       >
                         Envoyer un autre message
@@ -178,11 +189,11 @@ export default function ContactPage() {
                     </div>
                   ) : (
                     <>
-                      <h2 className="font-display font-bold text-foreground text-2xl mb-2">
+                      <h2 className="mb-2 font-display text-2xl font-bold text-foreground">
                         Envoyer un message
                       </h2>
-                      <p className="text-muted-foreground text-sm mb-8">
-                        Remplissez le formulaire ci-dessous et nous vous répondrons
+                      <p className="mb-8 text-sm text-muted-foreground">
+                        Remplissez le formulaire ci-dessous et nous vous repondrons
                         rapidement.
                       </p>
                       <form
@@ -191,20 +202,20 @@ export default function ContactPage() {
                         aria-label="Formulaire de contact"
                         noValidate
                       >
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                           <div className="flex flex-col gap-1.5">
                             <label
                               htmlFor="contact-name"
                               className="text-sm font-medium text-foreground"
                             >
-                              Prénom et nom
+                              Prenom et nom
                             </label>
                             <Input
                               id="contact-name"
                               name="name"
                               placeholder="Jean Dupont"
                               required
-                              className="rounded-xl h-11"
+                              className="h-11 rounded-xl"
                             />
                           </div>
                           <div className="flex flex-col gap-1.5">
@@ -220,7 +231,7 @@ export default function ContactPage() {
                               type="email"
                               placeholder="jean@exemple.fr"
                               required
-                              className="rounded-xl h-11"
+                              className="h-11 rounded-xl"
                             />
                           </div>
                         </div>
@@ -230,8 +241,8 @@ export default function ContactPage() {
                             htmlFor="contact-phone"
                             className="text-sm font-medium text-foreground"
                           >
-                            Téléphone{" "}
-                            <span className="text-muted-foreground font-normal">
+                            Telephone{" "}
+                            <span className="font-normal text-muted-foreground">
                               (facultatif)
                             </span>
                           </label>
@@ -240,7 +251,7 @@ export default function ContactPage() {
                             name="phone"
                             type="tel"
                             placeholder="06 XX XX XX XX"
-                            className="rounded-xl h-11"
+                            className="h-11 rounded-xl"
                           />
                         </div>
 
@@ -254,9 +265,9 @@ export default function ContactPage() {
                           <Input
                             id="contact-subject"
                             name="subject"
-                            placeholder="Inscription — Permis B, Devis, Question..."
+                            placeholder="Inscription - Permis B, Devis, Question..."
                             required
-                            className="rounded-xl h-11"
+                            className="h-11 rounded-xl"
                           />
                         </div>
 
@@ -273,26 +284,26 @@ export default function ContactPage() {
                             placeholder="Bonjour, je souhaite m'inscrire pour une formation..."
                             required
                             rows={5}
-                            className="rounded-xl resize-none"
+                            className="resize-none rounded-xl"
                           />
                         </div>
 
                         <Button
                           type="submit"
                           size="lg"
-                          className="w-full bg-green hover:bg-green-dark text-white font-semibold rounded-xl shadow-sm transition-all duration-200 hover:shadow-md"
+                          className="w-full rounded-xl bg-green font-semibold text-white shadow-sm transition-all duration-200 hover:bg-green-dark hover:shadow-md"
                         >
-                          <Send className="w-4 h-4 mr-2" aria-hidden="true" />
+                          <Send className="mr-2 h-4 w-4" aria-hidden="true" />
                           Envoyer le message
                         </Button>
 
-                        <p className="text-xs text-muted-foreground text-center">
-                          Vos données sont traitées conformément à notre{" "}
+                        <p className="text-center text-xs text-muted-foreground">
+                          Vos donnees sont traitees conformement a notre{" "}
                           <a
                             href="/confidentialite"
-                            className="underline hover:text-foreground transition-colors duration-200"
+                            className="underline transition-colors duration-200 hover:text-foreground"
                           >
-                            politique de confidentialité
+                            politique de confidentialite
                           </a>
                           .
                         </p>

@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 
 export default function ContactBlock() {
   const [submitted, setSubmitted] = useState(false);
@@ -17,58 +16,57 @@ export default function ContactBlock() {
 
   return (
     <section
-      className="py-20 md:py-28 bg-background"
+      className="bg-background py-20 md:py-28"
       aria-labelledby="contact-block-title"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Left */}
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-green mb-2">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-green">
               Nous joindre
             </p>
             <h2
               id="contact-block-title"
-              className="font-display font-bold text-foreground text-3xl md:text-4xl text-balance mb-5"
+              className="mb-5 text-balance font-display text-3xl font-bold text-foreground md:text-4xl"
             >
               Une question ? Contactez-nous
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-10">
-              Notre équipe est disponible pour répondre à toutes vos questions
+            <p className="mb-10 leading-relaxed text-muted-foreground">
+              Notre equipe est disponible pour repondre a toutes vos questions
               sur les formations, les tarifs ou les inscriptions.
             </p>
 
-            <address className="not-italic flex flex-col gap-5">
+            <address className="flex flex-col gap-5 not-italic">
               <a
                 href="tel:0769748412"
-                className="flex items-center gap-4 group"
+                className="group flex items-center gap-4"
                 aria-label="Appeler le 07 69 74 84 12"
               >
-                <span className="flex items-center justify-center w-12 h-12 rounded-2xl bg-green-light group-hover:bg-green transition-colors duration-200">
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-green-light transition-colors duration-200 group-hover:bg-green">
                   <Phone
-                    className="w-5 h-5 text-green group-hover:text-white transition-colors duration-200"
+                    className="h-5 w-5 text-green transition-colors duration-200 group-hover:text-white"
                     aria-hidden="true"
                   />
                 </span>
                 <div>
-                  <p className="text-xs text-muted-foreground mb-0.5">Téléphone</p>
+                  <p className="mb-0.5 text-xs text-muted-foreground">Telephone</p>
                   <p className="font-semibold text-foreground">07 69 74 84 12</p>
                 </div>
               </a>
 
               <a
                 href="mailto:grenade.autoecole@gmail.com"
-                className="flex items-center gap-4 group"
-                aria-label="Envoyer un email à grenade.autoecole@gmail.com"
+                className="group flex items-center gap-4"
+                aria-label="Envoyer un email a grenade.autoecole@gmail.com"
               >
-                <span className="flex items-center justify-center w-12 h-12 rounded-2xl bg-green-light group-hover:bg-green transition-colors duration-200">
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-green-light transition-colors duration-200 group-hover:bg-green">
                   <Mail
-                    className="w-5 h-5 text-green group-hover:text-white transition-colors duration-200"
+                    className="h-5 w-5 text-green transition-colors duration-200 group-hover:text-white"
                     aria-hidden="true"
                   />
                 </span>
                 <div>
-                  <p className="text-xs text-muted-foreground mb-0.5">Email</p>
+                  <p className="mb-0.5 text-xs text-muted-foreground">Email</p>
                   <p className="font-semibold text-foreground">
                     grenade.autoecole@gmail.com
                   </p>
@@ -76,13 +74,13 @@ export default function ContactBlock() {
               </a>
 
               <div className="flex items-center gap-4">
-                <span className="flex items-center justify-center w-12 h-12 rounded-2xl bg-green-light">
-                  <MapPin className="w-5 h-5 text-green" aria-hidden="true" />
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-green-light">
+                  <MapPin className="h-5 w-5 text-green" aria-hidden="true" />
                 </span>
                 <div>
-                  <p className="text-xs text-muted-foreground mb-0.5">Adresse</p>
+                  <p className="mb-0.5 text-xs text-muted-foreground">Adresse</p>
                   <p className="font-semibold text-foreground">
-                    13C Allées Alsace Lorraine
+                    13C Allees Alsace Lorraine
                     <br />
                     31330 Grenade, France
                   </p>
@@ -90,42 +88,44 @@ export default function ContactBlock() {
               </div>
             </address>
 
-            {/* Map placeholder */}
-            <div
-              className="mt-10 h-48 rounded-2xl bg-secondary border border-border flex items-center justify-center overflow-hidden"
-              role="img"
-              aria-label="Carte de localisation — 13C Allées Alsace Lorraine, Grenade"
-            >
-              <div className="text-center">
-                <MapPin className="w-8 h-8 text-green mx-auto mb-2" aria-hidden="true" />
-                <p className="text-sm text-muted-foreground font-medium">
-                  13C Allées Alsace Lorraine
-                </p>
-                <p className="text-xs text-muted-foreground">31330 Grenade</p>
+            <div className="mt-10 overflow-hidden rounded-2xl border border-border bg-secondary shadow-sm">
+              <iframe
+                title="Carte de localisation - Grenade Auto-Ecole"
+                src="https://www.google.com/maps?q=13C%20Allees%20Alsace%20Lorraine%2C%2031330%20Grenade&z=16&output=embed"
+                className="h-56 w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <div className="flex items-center justify-between gap-3 border-t border-border px-4 py-3">
+                <div>
+                  <p className="text-sm font-semibold text-foreground">
+                    13C Allees Alsace Lorraine
+                  </p>
+                  <p className="text-xs text-muted-foreground">31330 Grenade, France</p>
+                </div>
                 <a
-                  href="https://maps.google.com/?q=13C+Allées+Alsace+Lorraine+31330+Grenade"
+                  href="https://maps.google.com/?q=13C+Allees+Alsace+Lorraine+31330+Grenade"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 inline-block text-xs text-green hover:underline"
+                  className="text-xs font-medium text-green transition-colors duration-200 hover:text-[#e33292]"
                 >
-                  Ouvrir dans Google Maps
+                  Ouvrir Google Maps
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Right: form */}
-          <div className="bg-card rounded-2xl border border-border shadow-sm p-8">
+          <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
             {submitted ? (
               <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
-                <div className="w-14 h-14 rounded-full bg-green-light flex items-center justify-center">
-                  <Send className="w-6 h-6 text-green" aria-hidden="true" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-green-light">
+                  <Send className="h-6 w-6 text-green" aria-hidden="true" />
                 </div>
-                <h3 className="font-display font-bold text-foreground text-xl">
-                  Message envoyé !
+                <h3 className="font-display text-xl font-bold text-foreground">
+                  Message envoye !
                 </h3>
-                <p className="text-muted-foreground text-sm">
-                  Nous vous répondrons dans les plus brefs délais.
+                <p className="text-sm text-muted-foreground">
+                  Nous vous repondrons dans les plus brefs delais.
                 </p>
                 <Button
                   variant="outline"
@@ -137,7 +137,7 @@ export default function ContactBlock() {
               </div>
             ) : (
               <>
-                <h3 className="font-display font-bold text-foreground text-xl mb-6">
+                <h3 className="mb-6 font-display text-xl font-bold text-foreground">
                   Envoyer un message
                 </h3>
                 <form
@@ -146,7 +146,7 @@ export default function ContactBlock() {
                   aria-label="Formulaire de contact"
                   noValidate
                 >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div className="flex flex-col gap-1.5">
                       <label
                         htmlFor="name"
@@ -184,8 +184,8 @@ export default function ContactBlock() {
                       htmlFor="phone"
                       className="text-sm font-medium text-foreground"
                     >
-                      Téléphone{" "}
-                      <span className="text-muted-foreground font-normal">
+                      Telephone{" "}
+                      <span className="font-normal text-muted-foreground">
                         (facultatif)
                       </span>
                     </label>
@@ -210,14 +210,14 @@ export default function ContactBlock() {
                       placeholder="Bonjour, je souhaite avoir des informations sur..."
                       required
                       rows={4}
-                      className="rounded-xl resize-none"
+                      className="resize-none rounded-xl"
                     />
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-green hover:bg-green-dark text-white font-semibold rounded-xl py-5 shadow-sm transition-all duration-200 hover:shadow-md mt-1"
+                    className="mt-1 w-full rounded-xl bg-green py-5 font-semibold text-white shadow-sm transition-all duration-200 hover:bg-green-dark hover:shadow-md"
                   >
-                    <Send className="w-4 h-4 mr-2" aria-hidden="true" />
+                    <Send className="mr-2 h-4 w-4" aria-hidden="true" />
                     Envoyer le message
                   </Button>
                 </form>

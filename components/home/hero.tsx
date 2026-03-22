@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import InteractiveGrid from "@/components/home/interactive-grid";
 import { ArrowRight, Phone, ShieldCheck } from "lucide-react";
 
 export default function Hero() {
@@ -23,6 +24,7 @@ export default function Hero() {
             backgroundSize: "64px 64px",
           }}
         />
+        <InteractiveGrid />
         {/* Green glow top-right */}
         <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-green opacity-10 blur-3xl" />
         {/* Subtle bottom left */}

@@ -43,6 +43,7 @@
   --green: oklch(0.55 0.18 150);
   --green-light: oklch(0.93 0.04 150);
   --green-dark: oklch(0.42 0.16 150);
+  --pink: #e33292;
 
   --sidebar: oklch(0.98 0.004 240);
   --sidebar-foreground: oklch(0.13 0.03 250);
@@ -107,11 +108,16 @@
   --color-green: var(--green);
   --color-green-light: var(--green-light);
   --color-green-dark: var(--green-dark);
+  --color-pink: var(--pink);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+  *::selection {
+    background: color-mix(in oklab, var(--pink) 78%, white 22%);
+    color: white;
   }
   body {
     @apply bg-background text-foreground;
